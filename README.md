@@ -120,6 +120,10 @@ ex)
 sex:1(男性)、2(女性)
 count(tm.sex=1 OR NULL)
 
+## 実人数と延べ人数
+実人数は端的に言うと、tbl_memberテーブルの中でselectの条件に対してnull値を持たない人数
+ということになるっぽい
+
 参考： 
 * MYSQL リファレンス　https://dev.mysql.com/doc/refman/5.6/ja/comparison-operators.html#function_coalesce
 * はじめてのSQL　https://www.udemy.com/course/standard-sql-for-beginners/learn/lecture/9507796#notes

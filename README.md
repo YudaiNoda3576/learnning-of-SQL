@@ -58,6 +58,7 @@ SELECT member, team, age ,
 ORDER BY team, rn;
 
 GROUP BY:クエリ全体を変更する
+
 PARTITION BY:ウィンドウ関数に対してのみ動作する
 
 # 分析関数（ウインドウ関数）と集合関数

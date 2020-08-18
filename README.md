@@ -110,6 +110,16 @@ date_format(tp.purchase_date, '%Y年%m月')
 →2018年5月
 みたいに表示できる
 
+## count関数の中で条件を指定する
+countは非null値を持つ値をすべて数える。
+ので、下記のように or nullという条件を加えないとテーブル上には値が存在しているのですべて非null値としてカウントされてしまう。
+or nullの条件を加えることで、男性の場合のみTRUEとなり要件通りカウント関数を用いることが出来る。
+
+ex)
+男性の数だけ数えたい場合
+sex:1(男性)、2(女性)
+count(tm.sex=1 OR NULL)
+
 参考： 
 * はじめてのSQL　https://www.udemy.com/course/standard-sql-for-beginners/learn/lecture/9507796#notes
 * JOINに関する記事https://qiita.com/ngron/items/db4947fb0551f21321c0
@@ -119,3 +129,5 @@ https://rfs.jp/sb/sql
 https://www.sejuku.net/blog/73003
 * GROUP BYとPATITION BY http://mickindex.sakura.ne.jp/database/db_gb_pb.html
 * 分析関数についてhttps://qiita.com/tlokweng/items/fc13dc30cc1aa28231c5
+* count関数について
+https://qiita.com/zb185423/items/f20b21ca041989410b5f

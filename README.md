@@ -99,6 +99,14 @@ SELECT order_id, item, COUNT(*) OVER () FROM test_orders;
 * まとめた結果に対して何らかの処理を加える必要がある場合はGROUP BY句
 という使い分けができる
 
+## 既存の日付データから、年月のみを抽出する
+date_formatを使えばいい。sqlserverにはないので注意。sqlserverではformat。
+
+ex)
+date_format(tp.purchase_date, '%Y年%m月')
+→2018年5月
+みたいに表示できる
+
 参考： 
 * はじめてのSQL　https://www.udemy.com/course/standard-sql-for-beginners/learn/lecture/9507796#notes
 * JOINに関する記事https://qiita.com/ngron/items/db4947fb0551f21321c0

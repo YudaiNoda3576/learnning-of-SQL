@@ -1,4 +1,6 @@
-# learnning-of-SQL
+# ER図
+![ERD](https://user-images.githubusercontent.com/63564761/90491750-50bcd100-e17b-11ea-8432-39fc56fbcdd9.PNG)
+
 ## 指定文字数分左埋め/最大値＋1
 →LPAD（MAX関数（カラム名）＋１, 桁数, 埋める数)
 

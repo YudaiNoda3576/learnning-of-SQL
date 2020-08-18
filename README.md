@@ -43,7 +43,8 @@ SELECT * FROM A LEFT JOIN B USING (F1, F2, F3)
 SELECT * FROM A LEFT JOIN B ON A.F1=B.F1 AND A.F2=B.F2 AND A.F3=B.F3,...
 
 # HAVING句の実行順序
-https://github.com/YudaiNoda3576/learnning-of-SQL/issues/1#issue-680815446
+![HAVINGの実行順序](https://user-images.githubusercontent.com/63564761/90491360-ca07f400-e17a-11ea-889e-2400fc7703fe.png)
+
 
 # GROUP BYとPERTITION　BYの違い
 いずれもテーブルを指定されたキーで分割する

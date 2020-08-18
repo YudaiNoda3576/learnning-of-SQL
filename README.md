@@ -121,6 +121,7 @@ sex:1(男性)、2(女性)
 count(tm.sex=1 OR NULL)
 
 参考： 
+* MYSQL リファレンス　https://dev.mysql.com/doc/refman/5.6/ja/comparison-operators.html#function_coalesce
 * はじめてのSQL　https://www.udemy.com/course/standard-sql-for-beginners/learn/lecture/9507796#notes
 * JOINに関する記事https://qiita.com/ngron/items/db4947fb0551f21321c0
 * SQL全般

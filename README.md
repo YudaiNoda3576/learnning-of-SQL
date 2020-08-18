@@ -92,6 +92,13 @@ SELECT order_id, item, COUNT(*) OVER () FROM test_orders;
 * Order By指定
 * Window (Frame)指定
 
+## DISTINCTかGROUP BYか
+目的に対する挙動はどちらも同じなので、それほどこだわる必要はない。
+強いて言うならば、
+* 単に重複を除いた結果をそのまま出すだけの場合はDISTINCT句
+* まとめた結果に対して何らかの処理を加える必要がある場合はGROUP BY句
+という使い分けができる
+
 参考： 
 * はじめてのSQL　https://www.udemy.com/course/standard-sql-for-beginners/learn/lecture/9507796#notes
 * JOINに関する記事https://qiita.com/ngron/items/db4947fb0551f21321c0

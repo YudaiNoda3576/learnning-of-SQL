@@ -1,12 +1,17 @@
 # ER図
 ![ERD](https://user-images.githubusercontent.com/63564761/90491750-50bcd100-e17b-11ea-8432-39fc56fbcdd9.PNG)
 
-## 指定文字数分左埋め/最大値＋1
+## 使用しているDB
+mariaDB 10.4.13
+
+## 指定文字数分左埋め/最大値＋1　を実行する
 →LPAD（MAX関数（カラム名）＋１, 桁数, 埋める数)
 
-INSERT INTO tbl_member(member_id,member_name,sex,birthday,enrollment_date,quit_flg,update_date)  
-SELECT lpad(max(member_id) + 1,4,'0'),'木曽義仲', '1', '1998-08-16', '2020-08-12', 0, '2020-08-12'
-FROM tbl_member;
+    INSERT INTO tbl_member(member_id,member_name,sex,birthday,enrollment_date,quit_flg,update_date)  
+    SELECT 
+      lpad(max(member_id) + 1,4,'0'),'木曽義仲', '1', '1998-08-16', '2020-08-12', 0, '2020-08-12'
+    FROM 
+      tbl_member;
 
 # CROSS JOIN
 結合条件が存在しない場合にテーブル同士を結合することが出来る
@@ -24,11 +29,10 @@ FROM tbl_member;
  テーブル同士の結合に用いるが、結合先がNULL値であっても全件を結合することが出来る。
  INNER　JOINは結合先のカラムで共通する値しか結合しない。
  
- # USING
+# USING
 USING句は、ON句の略記法。
 結合する条件が同じ名前のフィールド名であれば、USINGで結合条件を指定することができる。
 USINGの引数に指定したフィールド名で、テーブル間のリレーションを作成します。
-
 次の構文は意味的には同じ。
 
 ### USING を使った構文
@@ -37,6 +41,7 @@ SELECT * FROM A LEFT JOIN B USING (Ｆ1)
 ### ON 条件式を使った構文
 SELECT * FROM A LEFT JOIN B ON A.F1=B.F1
 フィールド名をカンマ( , )で区切って条件式を複数指定することも可能。
+__________________________________________________________________
 
 ### USING を使った構文
 SELECT * FROM A LEFT JOIN B USING (F1, F2, F3)

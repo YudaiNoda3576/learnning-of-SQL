@@ -130,7 +130,7 @@ count(tm.sex=1 OR NULL)
 ![トリガーの基本事項](https://user-images.githubusercontent.com/63564761/90583793-0c2d4600-e20c-11ea-8f6c-3011944147cc.PNG)
 
 ### トリガーの構文
- ```CREATE
+CREATE
     [DEFINER = { user | CURRENT_USER }]
     TRIGGER trigger_name
     trigger_time trigger_event
@@ -139,7 +139,7 @@ count(tm.sex=1 OR NULL)
 
 trigger_time: { BEFORE | AFTER }
 
-trigger_event: { INSERT | UPDATE | DELETE }```
+trigger_event: { INSERT | UPDATE | DELETE }
 
 
 参考： 

@@ -122,9 +122,12 @@ ex)
 sex:1(男性)、2(女性)
 count(tm.sex=1 OR NULL)
 
-## 実人数と延べ人数
-実人数は端的に言うと、tbl_memberテーブルの中でselectの条件に対してnull値を持たない人数
-ということになるっぽい
+## トリガーの作成
+### トリガーとは
+特定のテーブルへの操作を引き金に、あらかじめ定義しておいた処理を自動的に実行する仕組み。
+基本的な目的はテーブル間のデータの整合性を保つことにある。
+
+
 
 参考： 
 * MYSQL リファレンス　https://dev.mysql.com/doc/refman/5.6/ja/comparison-operators.html#function_coalesce
@@ -138,3 +141,5 @@ https://www.sejuku.net/blog/73003
 * 分析関数についてhttps://qiita.com/tlokweng/items/fc13dc30cc1aa28231c5
 * count関数について
 https://qiita.com/zb185423/items/f20b21ca041989410b5f
+* トリガーについて
+https://qiita.com/wanko5296/items/fa3620c48196acbd3ab6

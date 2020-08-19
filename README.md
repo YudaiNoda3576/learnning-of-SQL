@@ -157,6 +157,14 @@ count(tm.sex=1 OR NULL)
 
 →　保守性を考慮したうえで使用することが大切
 
+## ストアドプロシージャ
+DB上での一連処理に名前をつけて関数のように,呼び出して使用できるもの。
+開発言語に依存せずデータベース内で完結することが出来る。
+
+用例などは以下の記事が詳しい
+https://qiita.com/setsuna82001/items/e742338eb93e3a48ba46
+
+
 参考： 
 * MYSQL リファレンス　https://dev.mysql.com/doc/refman/5.6/ja/comparison-operators.html#function_coalesce
 * はじめてのSQL　https://www.udemy.com/course/standard-sql-for-beginners/learn/lecture/9507796#notes
@@ -171,3 +179,5 @@ https://www.sejuku.net/blog/73003
 https://qiita.com/zb185423/items/f20b21ca041989410b5f
 * トリガーについて
 https://qiita.com/wanko5296/items/fa3620c48196acbd3ab6
+* ストアドプロシージャ
+https://qiita.com/setsuna82001/items/e742338eb93e3a48ba46

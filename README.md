@@ -131,26 +131,23 @@ count(tm.sex=1 OR NULL)
 
 ### トリガーの構文
 
-CREATE
+
+    CREATE
     [DEFINER = { user | CURRENT_USER }]
-    
     TRIGGER trigger_name
-    
     trigger_time trigger_event
-    
     ON tbl_name FOR EACH ROW
-    
     trigger_body
     
-trigger_time: { BEFORE | AFTER }
-
-trigger_event: { INSERT | UPDATE | DELETE }
+    trigger_time: { BEFORE | AFTER }
+    trigger_event: { INSERT | UPDATE | DELETE }
 
 ### トリガーを使用する際の懸念
 * ビジネスロジックの拡大による保守性の低下
 * テーブル間の依存関係が生まれることによる保守性の低下
 * 自動的かつ透過的に値が更新されていくので開発者から忘れられる懸念がある
-→保守性を考慮したうえで使用することが大切
+
+→　保守性を考慮したうえで使用することが大切
 
 参考： 
 * MYSQL リファレンス　https://dev.mysql.com/doc/refman/5.6/ja/comparison-operators.html#function_coalesce

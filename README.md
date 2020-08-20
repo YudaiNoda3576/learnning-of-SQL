@@ -33,7 +33,7 @@ mariaDB 10.4.13
  INNER　JOINは結合先のカラムで共通する値しか結合しない。
  
 # USING
-USING句は、ON句の略記法。
+USING句は、ON句の略記法。可読性が上がるのでこちらで記述する方がよさげ。
 結合する条件が同じ名前のフィールド名であれば、USINGで結合条件を指定することができる。
 USINGの引数に指定したフィールド名で、テーブル間のリレーションを作成します。
 次の構文は意味的には同じ。
@@ -53,19 +53,13 @@ SELECT * FROM A LEFT JOIN B USING (F1, F2, F3)
 SELECT * FROM A LEFT JOIN B ON A.F1=B.F1 AND A.F2=B.F2 AND A.F3=B.F3,...
 
 # HAVING句の実行順序
+注意するのはGROUPBYを使用した時に、where句で条件を指定すると実行順序的にwhere句が先に実行されるという点。
+
 ![HAVINGの実行順序](https://user-images.githubusercontent.com/63564761/90491360-ca07f400-e17a-11ea-889e-2400fc7703fe.png)
 
 
 # GROUP BYとPERTITION　BYの違い
 いずれもテーブルを指定されたキーで分割する
-
-ex)
-SELECT member, team, age ,
-       RANK() OVER(PARTITION BY team ORDER BY age DESC) rn,
-       DENSE_RANK() OVER(PARTITION BY team ORDER BY age DESC) dense_rn,
-       ROW_NUMBER() OVER(PARTITION BY team ORDER BY age DESC) row_num
-  FROM Members
-ORDER BY team, rn;
 
 GROUP BY:クエリ全体を変更する
 
@@ -116,18 +110,21 @@ SELECT order_id, item, COUNT(*) OVER () FROM test_orders;
 date_formatを使えばいい。sqlserverにはないので注意。sqlserverではformat。
 
 ex)
+purchase_date = 2018-05-12というデータが存在する
+
 date_format(tp.purchase_date, '%Y年%m月')
 →2018年5月
 みたいに表示できる
 
 ## count関数の中で条件を指定する
-countは非null値を持つ値をすべて数える。
-ので、下記のように or nullという条件を加えないとテーブル上には値が存在しているのですべて非null値としてカウントされてしまう。
-or nullの条件を加えることで、男性の場合のみTRUEとなり要件通りカウント関数を用いることが出来る。
+countは __非null値を持つ値をすべて__ 数える。
+ので、下記のように or nullという条件を加えないとテーブル上は値が存在しているものすべて非null値として扱うため想定していない値もカウントされてしまう。
+以下のようにor nullの条件を加えることで、男性の場合はTRUE、非nullの場合はFALSEとなる。
 
 ex)
-男性の数だけ数えたい場合
 sex:1(男性)、2(女性)
+
+男性の数だけ数えたい場合
 count(tm.sex=1 OR NULL)
 
 ## トリガーの作成
@@ -178,6 +175,8 @@ ex)
 
 
 
+
+*********************************************************************************************************************
 
 参考： 
 * MYSQL リファレンス　https://dev.mysql.com/doc/refman/5.6/ja/comparison-operators.html#function_coalesce
